@@ -1,0 +1,112 @@
+{
+  "_meta": {
+    "estado": "v1.0 — 10/09/2026",
+    "referente": "Verónica Elena Mlinarevic",
+    "editado_por": "Verónica Elena Mlinarevic, con Claude AI"
+  },
+  "_nota": "Catálogo de dominios del Clasificador — v1.0. 'estado: activo' significa que el dominio ya tiene agente propio implementado. 'estado: via_api' significa que la consulta se deriva a la API vigente, que sí la resuelve, mientras ese agente no exista. 'estado: sin_resolver' significa que el dominio es real y está bien identificado, pero hoy no lo resuelve ni un agente ni la API (ej. contenido nuevo del RAG que el catálogo de la API original no contemplaba) — de cara al consultante se comporta igual que no_disponible, pero el dominio queda registrado internamente para medir demanda represada (ver A8 de spec_clasificador.md). El nivel de acceso NO se incluye acá a propósito: cada agente gestiona el suyo de forma independiente, el Clasificador no lo necesita para derivar.",
+  "agentes": [
+    {
+      "id": "turnos",
+      "nombre": "Turnos (agenda de citas)",
+      "descripcion": "Solicitar, cambiar o anular un turno médico, de laboratorio, mostrador o RRHH. Incluye consultas de disponibilidad de una especialidad en una sede puntual (ej. '¿tiene cardiología en Maipú?'), ya que esa disponibilidad depende de la misma agenda en vivo que usa el agente para ofrecer franjas.",
+      "estado": "activo"
+    },
+    {
+      "id": "autorizaciones",
+      "nombre": "Autorizaciones",
+      "descripcion": "Autorizar una práctica médica, receta o traslado antes de que se realice.",
+      "estado": "via_api"
+    },
+    {
+      "id": "resultados_tramites",
+      "nombre": "Consulta de resultados y estado de trámite",
+      "descripcion": "Ver el resultado de un estudio médico, o el estado de un ticket/expediente ya iniciado.",
+      "estado": "via_api"
+    },
+    {
+      "id": "recetas",
+      "nombre": "Recetas y medicamentos",
+      "descripcion": "Solicitar o renovar una receta, digital o de farmacia propia.",
+      "estado": "via_api"
+    },
+    {
+      "id": "afiliacion",
+      "nombre": "Afiliación y datos personales",
+      "descripcion": "Alta, baja o actualización de datos del afiliado; gestión del grupo familiar (cónyuge, hijos).",
+      "estado": "via_api"
+    },
+    {
+      "id": "credencial",
+      "nombre": "Credencial",
+      "descripcion": "Renovar, consultar o reclamar la credencial, física o digital.",
+      "estado": "via_api"
+    },
+    {
+      "id": "tramites_administrativos",
+      "nombre": "Trámites administrativos, formularios y expedientes",
+      "descripcion": "Iniciar una declaración jurada, un expediente de compras o de facturación, y hacer seguimiento de ese expediente.",
+      "estado": "via_api"
+    },
+    {
+      "id": "reclamos_pagos",
+      "nombre": "Reclamos, deuda y pagos",
+      "descripcion": "Reclamar un cobro indebido, consultar deuda o reintegros, informar forma de pago.",
+      "estado": "via_api"
+    },
+    {
+      "id": "token_consumo",
+      "nombre": "Token de consumo",
+      "descripcion": "Generar el código temporal de 6 dígitos que el afiliado entrega al prestador para registrar el consumo de una práctica a su nombre.",
+      "estado": "via_api"
+    },
+    {
+      "id": "verificacion_identidad",
+      "nombre": "Verificación de identidad — nivel 3",
+      "descripcion": "Confirmar que quien usa la app es realmente el afiliado, como paso previo a operaciones de nivel 3 (datos sensibles, credencial, generación de token de consumo).",
+      "estado": "via_api"
+    },
+    {
+      "id": "cartilla",
+      "nombre": "Cartilla (búsqueda de prestador)",
+      "descripcion": "Buscar un prestador o médico en la cartilla por nombre, especialidad o sede donde atiende. Disponible incluso sin login.",
+      "estado": "via_api"
+    },
+    {
+      "id": "gestion_prestador",
+      "nombre": "Gestión de prestador",
+      "descripcion": "Exclusivo para prestadores: gestión de su ficha profesional, inscripción, firma digital vinculada a su cuenta, y facturación de las prácticas atendidas (expedientes, seguimiento, vinculación).",
+      "estado": "via_api"
+    },
+    {
+      "id": "firma_digital",
+      "nombre": "Firma Digital",
+      "descripcion": "Agendar un turno para tramitar la firma digital. Disponible para cualquier persona, tenga o no vínculo previo con OSEP.",
+      "estado": "via_api"
+    },
+    {
+      "id": "soporte_tecnico",
+      "nombre": "Soporte técnico y mesa de ayuda",
+      "descripcion": "Reportar problemas del sistema, recuperar usuario o clave, soporte técnico general.",
+      "estado": "via_api"
+    },
+    {
+      "id": "rag",
+      "nombre": "Información general (RAG)",
+      "descripcion": "Contenido institucional curado manualmente: beneficios, preguntas frecuentes, cómo registrarse, y datos de referencia de baja frecuencia de cambio como direcciones, zonas y horarios generales de sedes. No incluye disponibilidad de servicios ni agenda en tiempo real — eso vive en el agente del dominio correspondiente.",
+      "estado": "sin_resolver"
+    },
+    {
+      "id": "telemedicina",
+      "nombre": "Telemedicina",
+      "descripcion": "Videoconsulta médica remota e información general sobre el servicio.",
+      "estado": "via_api"
+    },
+    {
+      "id": "rrhh",
+      "nombre": "Recursos Humanos",
+      "descripcion": "Exclusivo para empleados de OSEP, no afiliados: licencias, liquidación de sueldo, marcación horaria, junta médica laboral.",
+      "estado": "via_api"
+    }
+  ]
+}
